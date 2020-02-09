@@ -14,9 +14,9 @@ def sandwich(func):
     @wraps(func)
     def wrapped(*args, **kwargs):
         print(f"{UPPER_SLICE}")
-        result = func(*args, **kwargs) 
+        result = func(*args, **kwargs)
         print(f"{LOWER_SLICE}")
 
         return result
-    
+
     return wrapped
