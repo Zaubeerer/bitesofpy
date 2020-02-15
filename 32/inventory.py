@@ -4,4 +4,4 @@ items = [{'id': 1, 'name': 'laptop', 'value': 1000},
 
 
 def duplicate_items(items):
-    return items[:]
+    return [item_dict.copy() for item_dict in items[:]]
