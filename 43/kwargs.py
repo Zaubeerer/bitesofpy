@@ -1,1 +1,2 @@
-def get_profile(...
+def get_profile():
+    pass

@@ -1,1 +1,2 @@
-def gen_key(...
+def gen_key():
+    pass
