@@ -2,7 +2,7 @@ import pytest
 
 from itertools import islice
 
-from countdown import countdown
+from countdown_214 import countdown
 
 
 @pytest.fixture
