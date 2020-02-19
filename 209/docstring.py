@@ -1,3 +1,13 @@
 def sum_numbers(numbers):
-    """Write your docstring here ..."""
+    """[Summary]
+
+    :param [numbers]: list of numbers
+    :type [numbers]: list
+    ...
+    :raises [TypeError]: not all numeric values passed in
+    ...
+    :return: sum of numbers
+    :rtype: int
+    """
+
     pass
