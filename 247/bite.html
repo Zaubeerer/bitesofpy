@@ -1,0 +1,7 @@
+<p>In this Bite you will mock out a function of the standard library, more specifically <a href="https://github.com/python/cpython/blob/master/Lib/random.py#L326" target="_blank">random.sample</a>.</p>
+
+<p>We wrote a small generator that produces <a href="https://www.color-hex.com/" target="_blank">hex colors</a>. We also provided a <a href="https://pybit.es/pytest-fixtures.html" target="_blank">fixture</a> to initialize the generator so you can just call <code>next(gen)</code> to get the next hex value.</p>
+
+<p>Use <code>unittest.mock</code>'s <code>patch</code> to mock out the call to <code>sample</code>. It might be a bit tricky, but once you get this one down you possess a valuable testing skill!</p>
+
+<p>Have fun and keep calm and test with <code>pytest</code>!</p>

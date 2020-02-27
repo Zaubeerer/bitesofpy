@@ -1,0 +1,2 @@
+class IntList(list):
+    pass

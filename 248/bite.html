@@ -1,0 +1,11 @@
+<p>In this Bite you test a simple number guessing game (class). Ready to write some <code>pytest</code> code? Read on ...</p>
+
+<p>You again will need to mock out a standard library function, <code>input</code> this time.</p>
+
+<p>We tried to use <code>random.randint</code> to get the secret number, but <code>mutpy</code> became a bit too strict on us, so for now we just pass the secret number into the constructor. That said, there is some validation going on that you will need to test. Check for boundaries and to check exception strings, <code>pytest</code>'s <code>raises</code> has a nice <code>match</code> kwarg.</p>
+
+<p>The constructor also takes an optional <code>max_guesses</code> arg to make the game easier or harder. You will need to the use <code>capfd/capsys</code> fixture again to test the standard output of the game (100% test coverage remember).</p>
+
+<p>With all this testing goodness going on we label this an <i>Advanced</i> Bite, also due to the number of LOC we ended up with (> LOC of the game!). We also had to kill quite some mutants along the way (no worries, only <code>mutpy</code> mutants!) so well deserved the 4 points towards your next Ninja belt upon solving this one!</p>
+
+<p>Good luck and keep calm and code in Python / <code>pytest</code>.</p>

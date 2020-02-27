@@ -1,0 +1,11 @@
+<p>Time for fixtures, one of <code>pytest</code>'s killer features or as Brian Okken said: <i>pytest fixtures are one of the unique core features that make <code>pytest</code> stand out above other test frameworks, and are the reason why many people switch to and stay with <code>pytest</code></i> (<a href="https://pragprog.com/book/bopytest/python-testing-with-pytest" target="_blank">Python Testing with pytest</a>).</p>
+
+<p>Why fixtures? <i>The purpose of test fixtures is to provide a fixed baseline upon which tests can reliably and repeatedly execute. pytest fixtures offer dramatic improvements over the classic xUnit style of setup/teardown functions</i> (<a href="https://docs.pytest.org/en/latest/fixture.html" target="_blank">docs</a>).</p>
+
+<p>In this Bite we wrote a little movie DB using <code>sqlite3</code>. The idea is that you write a <code>db</code> fixture to instantiate this class and run its <code>init</code> method to get the movies table created and populated. At the end of the fixture you use <code>drop_table</code> to undo any changes.</p>
+
+<p>Apart from this <i>setup</i> and <i>teardown</i> there are 3 methods you need to test: <code>query</code>, <code>add</code> and <code>delete</code>. Specially <code>query</code> has various <i>args</i>, so make sure you test them all.</p>
+
+<p>Apart from the <a href="https://docs.pytest.org/en/latest/fixture.html" target="_blank">docs</a> we also wrote an article on fixtures you might want to check out: <a href="https://pybit.es/pytest-fixtures.html" target="_blank">All You Need to Know to Start Using Fixtures in Your pytest Code</a>.</p>
+
+<p>Let us know on Twitter when you finish <a href="https://codechalleng.es/bites/paths/pytest">our <code>pytest</code> learning path</a> ... Good luck and keep calm and code in Python / <code>pytest</code>!</p>
