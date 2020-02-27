@@ -5,4 +5,8 @@ def countdown_for(start=10):
 
 
 def countdown_recursive(start=10):
-    pass
+    if start == 0:
+        print('time is up')
+    else:
+        print(start)
+        return countdown_recursive(start=start-1)
