@@ -1,7 +1,7 @@
 from functools import wraps
 from time import time
 from typing import Deque, List, Set, Generator
-
+import collections
 
 def timing(f):
     """A simple timer decorator to print the elapsed time of
@@ -28,7 +28,7 @@ def contains(sequence: List[int], num: int) -> bool:
 
 @timing
 def contains_fast(sequence: Set[int], num: int) -> bool:
-    pass
+    return num in sequence
 
 
 @timing
@@ -38,7 +38,7 @@ def ordered_list_max(sequence: List[int]) -> int:
 
 @timing
 def ordered_list_max_fast(sequence: List[int]) -> int:
-    pass
+    return max(sequence)
 
 
 @timing
@@ -51,7 +51,8 @@ def list_concat(sequence: List[str]) -> str:
 
 @timing
 def list_concat_fast(sequence: List[str]) -> str:
-    pass
+    bigstr = ''
+    return bigstr.join(sequence)
 
 
 @timing
@@ -64,8 +65,12 @@ def list_inserts(n: int) -> List[int]:
 
 @timing
 def list_inserts_fast(n: int) -> Deque[int]:
-    pass
+    dq = collections.deque()
 
+    for i in range(n):
+        dq.insert(0, i)
+
+    return dq
 
 @timing
 def list_creation(n: int) -> List[int]:
@@ -76,5 +81,6 @@ def list_creation(n: int) -> List[int]:
 
 
 @timing
-def list_creation_fast(n: int) -> Generator[int]:
-    pass
+def list_creation_fast(n: int) -> Generator[int, float, str]:
+    for i in range(n):
+        yield i
