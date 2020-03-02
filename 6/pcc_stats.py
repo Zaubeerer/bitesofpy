@@ -62,8 +62,4 @@ def diehard_pybites():
             if challenges not in IGNORE:
                 challenges[challenge] += 1
 
-
-    # Stats.user = users.most_common(1)[0] 
-    # Stats.challenge = challenges.most_common(1)[0] 
-
     return Stats._make([users.most_common(1)[0][0], challenges.most_common(1)[0]])
