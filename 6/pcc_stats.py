@@ -47,10 +47,6 @@ def diehard_pybites():
        Stats(user='clamytoe', challenge=('01', 7))
     """
 
-    users = Counter()
-    challenges = Counter()
-
-
     for line in gen_files():
         description, is_directory = line.splitlines()[0].split(",")
         challenge, user = description.splitlines()[0].split("/")
@@ -59,7 +55,7 @@ def diehard_pybites():
             if user not in IGNORE:
                 users[user] += 1 
 
-            if challenges not in IGNORE:
-                challenges[challenge] += 1
+            if popular_challenges not in IGNORE:
+                popular_challenges[challenge] += 1
 
-    return Stats._make([users.most_common(1)[0][0], challenges.most_common(1)[0]])
+    return Stats._make([users.most_common(1)[0][0], popular_challenges.most_common(1)[0]])
