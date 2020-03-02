@@ -1,6 +1,7 @@
 import os
 from collections import Counter
 import urllib.request
+import re
 
 # prep
 tempfile = os.path.join('/tmp', 'feed')
@@ -18,4 +19,13 @@ with open(tempfile) as f:
 def get_pybites_top_tags(n=10):
     """use Counter to get the top 10 PyBites tags from the feed
        data already loaded into the content variable"""
-    pass
+
+    xml_pattern = "<category>[\s\S]*?<\/category>"
+
+    # TODO: there most be a more suitable re.method() than the following combination:
+    re_xml = re.findall(xml_pattern, content)
+    categories = [string[10:-11] for string in re_xml]
+
+    top_tag_counter = Counter(categories)
+
+    return top_tag_counter.most_common(n)
