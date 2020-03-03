@@ -1,5 +1,6 @@
 import os
 import urllib.request
+from collections import Counter
 
 # data provided
 tmp = os.getenv("TMP", "/tmp")
@@ -16,4 +17,22 @@ urllib.request.urlretrieve(
 
 
 def get_harry_most_common_word():
-    pass
+    
+    alphanumeric_word_counter = Counter()
+
+    with open(stopwords_file) as f:
+        stopwords = f.read().splitlines()
+
+    stopwords.append("--")
+
+    with open(harry_text) as f:
+        harry_sentences = f.readlines()
+        # TODO: rewrite this as generator OR with re 
+
+    for sentence in harry_sentences:
+        for word in sentence.split():
+            word_lowercase = word.lower().strip().strip("!:;.,<>`~'")
+            if word_lowercase not in stopwords:
+                alphanumeric_word_counter[word_lowercase] += 1
+
+    return alphanumeric_word_counter.most_common(1)[0]
