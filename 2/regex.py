@@ -19,7 +19,10 @@ def extract_course_times(course=COURSE):
        ['01:47', '32:03', '41:51', '27:48', '05:02']
        Return this list.
     """
-    pass
+
+    p = re.compile(r'\d{2}:\d{2}')
+    
+    return p.findall(course)
 
 
 def get_all_hashtags_and_links(tweet=TWEET):
@@ -31,7 +34,8 @@ def get_all_hashtags_and_links(tweet=TWEET):
         '#APIs']
        Return this list.
     """
-    pass
+    
+    return re.findall(r'((?:#|http)\S+)', tweet)
 
 
 def match_first_paragraph(html=HTML):
@@ -40,4 +44,7 @@ def match_first_paragraph(html=HTML):
        'pybites != greedy' (= content of first paragraph).
        Return this string.
     """
-    pass
+
+    first_paragraph = re.findall(r'<p>.*?</p>', html)[0]
+
+    return re.sub(r'<.*?>', '', first_paragraph)
