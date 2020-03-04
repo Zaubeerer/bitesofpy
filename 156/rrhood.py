@@ -59,11 +59,12 @@ def make_character_index(text=text, characters=CHARACTERS):
     character_appearances = defaultdict(list)
 
     for i_line, line in enumerate(text.split("\n")):
-        for char in CHARACTERS:
+        for char in characters:
             if type(char) is tuple:
                 for c in char:
                     if re.search(c.lower(), line.lower()) is not None:
                         character_appearances[char[0].lower()].append(i_line)
+                        break
 
             else:
                 if re.search(char.lower(), line.lower()) is not None:
