@@ -56,14 +56,6 @@ def make_character_index(text=text, characters=CHARACTERS):
        then return the former as key.
     """
 
-    # pseudo code
-
-    # variant 1:
-    # loop through each line of text, check whether words in CHARACTERS
-
-    # variant 2:
-    # loop through characters, check whether character in line
-
     character_appearances = defaultdict(list)
 
     for i_line, line in enumerate(text.split("\n")):
@@ -71,13 +63,10 @@ def make_character_index(text=text, characters=CHARACTERS):
             if type(char) is tuple:
                 for c in char:
                     if re.search(c.lower(), line.lower()) is not None:
-                    # if c in [word.strip(".,:!;") for word in line.split()]:
                         character_appearances[char[0].lower()].append(i_line)
-                        # break # add line only once per character
 
             else:
                 if re.search(char.lower(), line.lower()) is not None:
-                # if char in [word.strip(".,:!;") for word in line.split()]:
                     character_appearances[char.lower()].append(i_line)
 
-    return character_appearances
+    return dict(character_appearances)
