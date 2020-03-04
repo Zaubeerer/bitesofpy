@@ -1,4 +1,7 @@
+import re
+
 # source: https://www.virgin.com/richard-branson/my-top-10-quotes-living-life-better
+
 HTML = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8" />
@@ -26,4 +29,19 @@ HTML = """<!DOCTYPE html>
 
 def extract_quotes(html: str = HTML) -> dict:
     """See instructions in the Bite description"""
-    pass
+
+    paragraph_pattern = re.compile(r"<p>\d.*</p>")
+    quote_pattern = re.compile(r'".*"')
+    author_pattern = re.compile(r" - .*</p>")
+
+    matches = paragraph_pattern.findall(html)
+
+    quote_dict = {}
+
+    for paragraph in matches:
+        quote = quote_pattern.search(paragraph).group()[1:-1]
+        author = author_pattern.search(paragraph).group()[3:-4]
+
+        quote_dict[author] = quote
+
+    return quote_dict
