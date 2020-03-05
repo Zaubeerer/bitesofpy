@@ -1,8 +1,8 @@
-from regex import (has_timestamp, is_integer,
-                   has_word_with_dashes, remove_all_parenthesis_words,
-                   split_string_on_punctuation, remove_duplicate_spacing,
-                   has_three_consecutive_vowels,
-                   convert_emea_date_to_amer_date)
+from regex import (convert_emea_date_to_amer_date,
+                   has_three_consecutive_vowels, has_timestamp,
+                   has_word_with_dashes, is_integer,
+                   remove_all_parenthesis_words, remove_duplicate_spacing,
+                   split_string_on_punctuation)
 
 
 def test_has_timestamp():
