@@ -31,19 +31,22 @@ def get_email_details(header: str) -> dict:
        https://docs.python.org/3.7/library/re.html#re.Match.groupdict
        If not match, return None
     """
-    m = re.match(
-        r"""[\w\W]{113}
-        (?P<date>[\w\W]{25})
-        [\w\W]{331}
-        (?P<from>[\w\W]{16})
-        [\w\W]{6}
-        (?P<to>[\w\W]{16})
-        [\w\W]{11}
-        (?P<subject>[\w\W]{20})
-        """,
-        header,
-        # re.MULTILINE,
-        re.VERBOSE,
-    )
+    try:
+        m = re.match(
+            r"""
+            ([\w\W]*
+            (
+                ^Date: \s*(?P<date>[\w\W]{25}) 
+                |^From: \s*(?P<from>[\w\W]*?$)            
+                |^To: \s*(?P<to>[\w\W]*?$)                  # obtain receiver ("to")
+                |^Subject: \s*(?P<subject>[\w\W]*?$)        # obtain subject ("subject")
+            )){4}
+            """,
+            header,
+            re.VERBOSE | re.MULTILINE,
+        )
 
-    return m.groupdict()
+        return m.groupdict()
+
+    except:
+        return None
