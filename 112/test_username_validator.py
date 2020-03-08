@@ -2,8 +2,7 @@ from typing.re import Pattern
 
 import pytest
 
-from username_validator import (Validator,
-                                parse_social_platforms_string,
+from username_validator import (Validator, parse_social_platforms_string,
                                 validate_username)
 
 
