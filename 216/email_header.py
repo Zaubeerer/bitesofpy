@@ -34,10 +34,10 @@ def get_email_details(header: str) -> dict:
     try:
         m = re.match(
             r"""
-            ([\w\W]*
+            ([\w\W]*                                        # remove lines 
             (
-                ^Date: \s*(?P<date>[\w\W]{25}) 
-                |^From: \s*(?P<from>[\w\W]*?$)            
+                ^Date: \s*(?P<date>[\w\W]{25})              # obtain date ("date")
+                |^From: \s*(?P<from>[\w\W]*?$)              # obtain sender ("from")
                 |^To: \s*(?P<to>[\w\W]*?$)                  # obtain receiver ("to")
                 |^Subject: \s*(?P<subject>[\w\W]*?$)        # obtain subject ("subject")
             )){4}
