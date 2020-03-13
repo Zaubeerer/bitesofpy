@@ -25,4 +25,16 @@ def group_cars_by_manufacturer(cars):
        No return here, just print to the console. We use pytest > capfd to
        validate your output :)
     """
-    pass
+
+    # sort cars by manufacturer (tup[0])
+    cars.sort(key=lambda tup: tup[0])
+
+    # group by manufacturer (tup[0])
+    for manufacturer, tupels in groupby(cars, lambda tup: tup[0]):
+
+        print(manufacturer.upper())
+
+        for tup in tupels:
+            print(f"- {tup[1]}")  # print model
+
+        print() # spacing
