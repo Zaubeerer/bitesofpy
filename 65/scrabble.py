@@ -19,9 +19,20 @@ def get_possible_dict_words(draw):
     """Get all possible words from a draw (list of letters) which are
        valid dictionary words. Use _get_permutations_draw and provided
        dictionary"""
-    pass
+
+    valid_words = []
+    for permutation in _get_permutations_draw(draw):
+        
+        word = ''.join(permutation).lower()
+        if word in dictionary:
+            valid_words.append(word)
+
+    return valid_words
+
 
 def _get_permutations_draw(draw):
     """Helper to get all permutations of a draw (list of letters), hint:
        use itertools.permutations (order of letters matters)"""
-    pass
+
+    for n in range(len(draw)):
+        yield from itertools.permutations(draw, r=n)
