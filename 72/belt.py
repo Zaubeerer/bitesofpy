@@ -7,4 +7,7 @@ MIN_SCORE, MAX_SCORE = min(scores), max(scores)
 
 
 def get_belt(user_score):
-    pass
+
+    for required_score, belt in reversed(HONORS.items()):
+        if user_score >= required_score:
+            return belt
