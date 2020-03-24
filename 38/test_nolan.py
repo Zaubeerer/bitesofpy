@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 
-from nolan import get_tree, get_movies, get_movie_longest_runtime
+from nolan import get_movie_longest_runtime, get_movies, get_tree
 
 
 def test_get_tree():
