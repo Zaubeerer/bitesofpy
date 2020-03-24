@@ -5,6 +5,7 @@ SPAIN = timezone('Europe/Madrid')
 
 
 def what_time_lives_pybites(naive_utc_dt):
-    """Receives a naive UTC datetime object and returns a two element
-       tuple of Australian and Spanish (timezone aware) datetimes"""
-    pass
+	"""Receives a naive UTC datetime object and returns a two element
+		tuple of Australian and Spanish (timezone aware) datetimes"""
+	
+	return (utc.localize(naive_utc_dt).astimezone(timezone) for timezone in [AUSTRALIA, SPAIN])
