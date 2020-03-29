@@ -13,6 +13,8 @@ Keywords: enum, exception handling, multi type input
 
 from enum import Enum
 
+import numpy as np
+
 
 class Bloodtype(Enum):
     ZERO_NEG = 0
@@ -37,6 +39,8 @@ blood_type_text = {
 }
 
 # complete :
+
+
 def check_bt(donor, recipient):
     """ Checks red blood cell compatibility based on 8 blood types
         Args:
@@ -45,7 +49,28 @@ def check_bt(donor, recipient):
         Returns:
         bool: True for compatability, False otherwise.
     """
-    pass
+
+    # create a new enum:
+    # for all combinations of Bloodtype
+    # call result from enum
+
+    # Question: Isn't this computationally inefficient?
+
+    if type(donor) is Bloodtype:
+        donor_int = donor.value
+    elif type(donor) is int:
+        donor_int = donor
+    elif type(donor) is str:
+        donor_int = blood_type_text[donor].value
+
+    if type(recipient) is Bloodtype:
+        recipient_int = recipient.value
+    elif type(recipient) is int:
+        recipient_int = recipient
+    elif type(recipient) is str:
+        recipient_int = blood_type_text[recipient].value
+
+    return not any((np.sign(tuple_member) == -1) for tuple_member in _particular_antigen_comp(donor_int, recipient_int))
 
 
 # hint
