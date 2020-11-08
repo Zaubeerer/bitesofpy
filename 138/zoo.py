@@ -1,11 +1,20 @@
+from typing import Sequence
+
+
 class Animal:
 
+    sequence = 10000
+    zoo_list = []
+
     def __init__(self, name):
-        pass
+        self.name = name
+        Animal.sequence += 1
+        Animal.zoo_list.append(str(self))
 
     def __str__(self):
-        pass
+        return f"{Animal.sequence}. {(self.name).title()}"
 
     @classmethod
     def zoo(cls):
-        pass
+        return Animal.zoo_list
+        
