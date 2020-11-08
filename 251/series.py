@@ -2,13 +2,14 @@ import string
 
 import pandas as pd
 
+import numpy as np
 
 def basic_series() -> pd.Series:
     """Create a pandas Series containing the values 1, 2, 3, 4, 5
     Don't worry about the indexes for now.
     The name of the series should be 'Fred'
     """
-    pass
+    return pd.Series(data=[1, 2, 3, 4, 5], name="Fred")
 
 
 def float_series() -> pd.Series:
@@ -16,7 +17,7 @@ def float_series() -> pd.Series:
     from 0.000 -> 1.000 e.g. 0.000, 0.001, 0.002... 0.999, 1.000
     Don't worry about the indexes or the series name.
     """
-    pass
+    return pd.Series(data=np.arange(0.000, 1.001, 0.001))
 
 
 def alpha_index_series() -> pd.Series:
@@ -25,8 +26,12 @@ def alpha_index_series() -> pd.Series:
     so index 'a'=1, 'b'=2 ... 'y'=25, 'z'=26
     Don't worry about the series name.
     """
-    pass
 
+    lowercase_alphabets=list(string.ascii_lowercase)
+
+    numerics = np.arange(1, 27, dtype=np.int64)
+
+    return pd.Series(data=numerics, index=lowercase_alphabets)
 
 def object_values_series() -> pd.Series:
     """Create a Series with values A, B, ... Y, Z of type object
@@ -34,4 +39,8 @@ def object_values_series() -> pd.Series:
     so index 101='A', 102='B' ... 125='Y', 126='Z'
     Don't worry about the series name.
     """
-    pass
+
+    uppercase_alphabets=list(string.ascii_uppercase)
+    alphabet_index = range(101, 127)
+    
+    return pd.Series(data=uppercase_alphabets, index=alphabet_index)
