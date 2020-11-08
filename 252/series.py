@@ -7,14 +7,14 @@ def return_at_index(ser: pd.Series, idx: int) -> object:
     If you want to be extra careful catch and raise an error if
        the index does not exist.
     """
-    pass
+    return ser.iloc[idx]
 
 
 def get_slice(ser: pd.Series, start: int, end: int) -> pd.core.series.Series:
     """Return the slice of the given Series in the range between
     start and end.
     """
-    pass
+    return ser.iloc[start : end]
 
 
 def get_slice_inclusive(ser: pd.Series,
@@ -22,31 +22,31 @@ def get_slice_inclusive(ser: pd.Series,
     """Return the slice of the given Series in the range between
     start and end inclusive.
     """
-    pass
+    return ser.iloc[start : end+1]
 
 
 def return_head(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the first num elements of the given Series.
     """
-    pass
+    return ser.head(num)
 
 
 def return_tail(ser: pd.Series, num: int) -> pd.core.series.Series:
     """Return the last num elements of the given Series.
     """
-    pass
+    return ser.tail(num)
 
 
 def get_index(ser: pd.Series) -> pd.core.indexes.base.Index:
     """Return all indexes of the given Series.
     """
-    pass
+    return ser.index
 
 
 def get_values(ser: pd.Series) -> np.ndarray:
     """Return all the values of the given Series.
     """
-    pass
+    return ser.values
 
 
 def get_every_second_indexes(ser: pd.Series,
@@ -56,4 +56,9 @@ def get_every_second_indexes(ser: pd.Series,
     If even_index is False return every index where idx % 2 != 0
     Assume default indexing i.e. 0 -> n
     """
-    pass
+    if even_index:
+        mask = ser.index % 2 == 0
+    else:
+        mask = ser.index % 2 != 0
+
+    return ser[mask]
