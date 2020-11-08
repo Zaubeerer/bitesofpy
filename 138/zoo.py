@@ -8,6 +8,7 @@ class Animal:
 
     def __init__(self, name):
         self.name = name
+        self.sequence = Animal.sequence
         Animal.sequence += 1
         Animal.zoo_list.append(str(self))
 
@@ -16,5 +17,5 @@ class Animal:
 
     @classmethod
     def zoo(cls):
-        return Animal.zoo_list
+        return tuple(animal for animal in Animal.zoo_list)
         
