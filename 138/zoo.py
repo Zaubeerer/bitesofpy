@@ -17,5 +17,5 @@ class Animal:
 
     @classmethod
     def zoo(cls):
-        return tuple(animal for animal in Animal.zoo_list)
+        return '\n'.join(Animal.zoo_list)
         
